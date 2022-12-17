@@ -1,0 +1,5 @@
+%syntax-version=1.0.0
+%project=slonik_poc
+
+appschema 2022-12-17T18:03:15Z F. Levi <55688616+flevi29@users.noreply.github.com> # Add app schema.
+users [appschema] 2022-12-17T18:20:57Z F. Levi <55688616+flevi29@users.noreply.github.com> # Creates table to track our users.

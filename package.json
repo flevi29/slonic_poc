@@ -4,16 +4,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node dist/main.js",
+    "build": "tsc -p tsconfig.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@slonik/migrator": "^0.11.3",
-    "slonik": "^33.0.6"
+    "dotenv": "^16.0.3",
+    "slonik": "^33.0.6",
+    "zod": "^3.20.2"
   },
   "devDependencies": {
-    "@slonik/migrator": "^0.11.3"
+    "@types/node": "^18.11.16",
+    "execa": "^6.1.0",
+    "typescript": "^4.9.4"
   }
 }
