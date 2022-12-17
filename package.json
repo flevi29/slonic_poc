@@ -1,0 +1,19 @@
+{
+  "name": "slonik_poc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@slonik/migrator": "^0.11.3",
+    "slonik": "^33.0.6"
+  },
+  "devDependencies": {
+    "@slonik/migrator": "^0.11.3"
+  }
+}
