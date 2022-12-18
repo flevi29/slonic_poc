@@ -1,4 +1,3 @@
-// @TODO: https://github.com/gajus/slonik#user-content-slonik-usage
 import "dotenv/config";
 import { z } from "zod";
 import { createPool } from "slonik";

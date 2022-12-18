@@ -1,14 +1,14 @@
-const sqitchRaw = "sqitch";
-let sqitch;
+const sqitch = "sqitch";
+let sqitchOSSpecificCommandLine;
 switch (process.platform) {
   case "linux":
-    sqitch = sqitchRaw;
+    sqitchOSSpecificCommandLine = sqitch;
     break;
   case "win32":
-    sqitch = "wsl -- sudo sqitch";
+    sqitchOSSpecificCommandLine = "wsl -- sudo sqitch";
     break;
   default:
     throw new Error("Unsupported OS");
 }
 
-export { sqitch, sqitchRaw };
+export { sqitchOSSpecificCommandLine, sqitch };

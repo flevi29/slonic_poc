@@ -1,7 +1,7 @@
 import "dotenv/config";
 import { z } from "zod";
 import { execaCommand } from "execa";
-import { sqitch } from "./shared/sqitch.mjs";
+import { sqitchOSSpecificCommandLine } from "./shared/sqitch.mjs";
 
 const { PGDB_NAME, PGDB_USER, PGDB_PASS, PGDB_HOST, PGDB_PORT } = z
   .object({
@@ -14,7 +14,7 @@ const { PGDB_NAME, PGDB_USER, PGDB_PASS, PGDB_HOST, PGDB_PORT } = z
   }).parse(process.env);
 
 const setTargetDBCommandLine =
-  `${sqitch} config --user engine.pg.target 'db:pg://${PGDB_USER}:${PGDB_PASS}@${PGDB_HOST}:${
+  `${sqitchOSSpecificCommandLine} config --user engine.pg.target 'db:pg://${PGDB_USER}:${PGDB_PASS}@${PGDB_HOST}:${
     PGDB_PORT.toString(10)
   }/${PGDB_NAME}'`;
 

@@ -2,26 +2,30 @@ import { sql } from "slonik";
 import { z } from "zod";
 import { pool } from "./slonik.js";
 
-const user = z.object({
+const emptyQuerySchema = z.object({}).strict();
+
+const userSchema = z.object({
   nickname: z.string(),
   password: z.string(),
 });
 
 const result = await pool.connect(async (connection) => {
-  await connection.query(sql.unsafe`
+  const nickname = "klementine";
+  const password = "orange";
+  await connection.query(sql.type(emptyQuerySchema)`
       DELETE
       FROM main_schema.users
-      WHERE nickname = 'Dave Chapelle'
+      WHERE nickname = '${nickname}'
   `);
-  await connection.query(sql.unsafe`
+  await connection.query(sql.type(emptyQuerySchema)`
       INSERT INTO main_schema.users (nickname, password)
-      VALUES ('Dave Chapelle', 'cock')
+      VALUES ('${nickname}', '${password}')
   `);
   return connection.one(
     sql
-      .type(user)`SELECT nickname, password
-                  FROM main_schema.users
-                  WHERE nickname = 'Dave Chapelle'`,
+      .type(userSchema)`SELECT nickname, password
+                        FROM main_schema.users
+                        WHERE nickname = '${nickname}'`,
   );
 });
 
